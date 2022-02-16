@@ -22,7 +22,7 @@ import com.devsuperior.dsclient.dto.ClientDTO;
 import com.devsuperior.dsclient.service.ClientService;
 
 @RestController
-@RequestMapping(value = "/client")
+@RequestMapping(value = "/clients")
 public class ClientResource {
 	
 	@Autowired
@@ -32,7 +32,7 @@ public class ClientResource {
 	@GetMapping
 	public ResponseEntity<Page<ClientDTO>> findAll(
 			@RequestParam(value = "page", defaultValue = "0") Integer page,
-			@RequestParam(value = "linesPerPage", defaultValue = "12") Integer linesPerPage,
+			@RequestParam(value = "linesPerPage", defaultValue = "6") Integer linesPerPage,
 			@RequestParam(value = "direction", defaultValue = "ASC") String direction,
 			@RequestParam(value = "orderBy", defaultValue = "name") String orderBy
 			){
