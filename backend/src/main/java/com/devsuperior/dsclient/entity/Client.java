@@ -1,7 +1,9 @@
 package com.devsuperior.dsclient.entity;
 
 import java.io.Serializable;
+import java.time.Instant;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,6 +21,10 @@ public class Client implements Serializable {
 	private Long id;
 	private String name;
 	private Double income;
+	
+	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+	private Instant birthDate;
+	
 	private Integer children;
 	
 	
@@ -29,10 +35,11 @@ public class Client implements Serializable {
 	
 	
 	
-	public Client(Long id, String name, Double income, Integer children) {
+	public Client(Long id, String name, Double income, Instant birthDate, Integer children) {
 		this.id = id;
 		this.name = name;
 		this.income = income;
+		this.birthDate = birthDate;
 		this.children = children;
 	}
 
@@ -61,6 +68,14 @@ public class Client implements Serializable {
 
 	public void setIncome(Double income) {
 		this.income = income;
+	}
+
+	public Instant getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(Instant birthDate) {
+		this.birthDate = birthDate;
 	}
 
 	public Integer getChildren() {

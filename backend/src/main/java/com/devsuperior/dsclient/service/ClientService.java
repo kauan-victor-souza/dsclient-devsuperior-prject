@@ -44,6 +44,7 @@ public class ClientService {
 		Client entity = new Client();
 		entity.setName(dto.getName());
 		entity.setIncome(dto.getIncome());
+		entity.setBirthDate(dto.getBirthDate());
 		entity.setChildren(dto.getChildren());
 		entity = repository.save(entity);
 		return new ClientDTO(entity);
@@ -56,6 +57,7 @@ public class ClientService {
 			Client entity = repository.getOne(id);
 			entity.setName(dto.getName());
 			entity.setIncome(dto.getIncome());
+			entity.setBirthDate(dto.getBirthDate());
 			entity.setChildren(dto.getChildren());
 			entity = repository.save(entity);
 			return new ClientDTO(entity);
